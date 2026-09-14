@@ -11,7 +11,17 @@
 
 	<header class="site-header">
 		<div class="header-inner">
-			<button class="menu-btn" id="menuBtn" title="Меню">&#9776;</button>
+			<div class="menu-wrap">
+				<button class="menu-btn" id="menuBtn" title="Меню">&#9776;</button>
+				<div class="dropdown-menu" id="dropdownMenu">
+					<ul>
+						<li><a href="services.html">Услуги</a></li>
+						<li><a href="about.html">О нас</a></li>
+						<li><a href="contacts.html">Контакты</a></li>
+						<li><a href="profile.html">Профиль</a></li>
+					</ul>
+				</div>
+			</div>
 			<a href="index.html" class="logo">GiftPay</a>
 			<nav class="top-nav">
 				<ul>
@@ -22,14 +32,6 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="dropdown-menu" id="dropdownMenu">
-			<ul>
-				<li><a href="services.html">Услуги</a></li>
-				<li><a href="about.html">О нас</a></li>
-				<li><a href="contacts.html">Контакты</a></li>
-				<li><a href="profile.html">Профиль</a></li>
-			</ul>
-		</div>
 	</header>
 
 	<main class="container">
@@ -38,20 +40,34 @@
 			<h2>Каталог услуг</h2>
 
 			<ul class="service-tabs">
-				<li><a class="active" data-target="panel-steam">Steam</a></li>
-				<li><a data-target="panel-ps">PlayStation Store</a></li>
-				<li><a data-target="panel-apple">Apple Gift Card</a></li>
+				<li><a href="#steam" class="active" data-target="panel-steam" data-hash="steam">Steam</a></li>
+				<li><a href="#ps" data-target="panel-ps" data-hash="ps">PlayStation Store</a></li>
+				<li><a href="#apple" data-target="panel-apple" data-hash="apple">Apple Gift Card</a></li>
 			</ul>
 
 			<!-- Пополнение Steam -->
 			<div class="service-panel active" id="panel-steam">
+				<div class="product-card">
+					<div class="product-cover">
+						<img src="images/steam-cover.png" alt="Логотип Steam">
+					</div>
+					<div class="product-info">
+						<h3>Steam</h3>
+						<p>Пополняйте баланс Steam-кошелька и покупайте игры, дополнения и предметы сразу после оплаты.</p>
+						<ul class="product-meta">
+							<li><b>Жанр:</b> пополнение баланса</li>
+							<li><b>Разработчик:</b> Valve Corporation</li>
+						</ul>
+					</div>
+				</div>
+
 				<p class="field-label">Сумма пополнения, ₽</p>
 				<input class="amount-input" type="text" placeholder="Введите сумму">
 				<div class="amount-presets">
-					<button>200 ₽</button>
-					<button>500 ₽</button>
-					<button>1000 ₽</button>
-					<button>2000 ₽</button>
+					<button data-amount="200">200 ₽</button>
+					<button data-amount="500">500 ₽</button>
+					<button data-amount="1000">1000 ₽</button>
+					<button data-amount="2000">2000 ₽</button>
 				</div>
 				<p class="field-label">Логин Steam</p>
 				<input class="login-input" type="text" placeholder="Ваш логин">
@@ -60,18 +76,32 @@
 
 			<!-- Подарочные карты PlayStation Store -->
 			<div class="service-panel" id="panel-ps">
+				<div class="product-card">
+					<div class="product-cover">
+						<img src="images/playstation-cover.png" alt="Обложка PlayStation Store">
+					</div>
+					<div class="product-info">
+						<h3>PlayStation Store</h3>
+						<p>Подарочные карты PlayStation Store нужного региона — для покупок игр, подписки PS Plus и дополнений.</p>
+						<ul class="product-meta">
+							<li><b>Жанр:</b> подарочные карты, подписка PS Plus</li>
+							<li><b>Издатель:</b> Sony Interactive Entertainment</li>
+						</ul>
+					</div>
+				</div>
+
 				<p class="field-label">Регион карты</p>
 				<ul class="country-tabs">
-					<li><a class="active">Турция</a></li>
-					<li><a>Индия</a></li>
+					<li><a class="active" data-currency="₺" data-amounts="100,250,500,1000">Турция</a></li>
+					<li><a data-currency="₹" data-amounts="500,1000,2000,4000">Индия</a></li>
 				</ul>
 				<p class="field-label">Номинал карты</p>
 				<input class="amount-input" type="text" placeholder="Введите сумму">
 				<div class="amount-presets">
-					<button>10 $</button>
-					<button>25 $</button>
-					<button>50 $</button>
-					<button>100 $</button>
+					<button data-amount="100">100 ₺</button>
+					<button data-amount="250">250 ₺</button>
+					<button data-amount="500">500 ₺</button>
+					<button data-amount="1000">1000 ₺</button>
 				</div>
 				<p class="field-label">Email для получения кода</p>
 				<input class="login-input" type="text" placeholder="example@mail.ru">
@@ -80,18 +110,32 @@
 
 			<!-- Apple Gift Card -->
 			<div class="service-panel" id="panel-apple">
+				<div class="product-card">
+					<div class="product-cover">
+						<img src="images/apple-cover.png" alt="Подарочная карта Apple">
+					</div>
+					<div class="product-info">
+						<h3>Apple Gift Card</h3>
+						<p>Универсальная подарочная карта для пополнения Apple ID — App Store, iTunes, iCloud+ и подписки Apple.</p>
+						<ul class="product-meta">
+							<li><b>Жанр:</b> подарочные карты</li>
+							<li><b>Издатель:</b> Apple Inc.</li>
+						</ul>
+					</div>
+				</div>
+
 				<p class="field-label">Регион карты</p>
 				<ul class="country-tabs">
-					<li><a class="active">США</a></li>
-					<li><a>Канада</a></li>
+					<li><a class="active" data-currency="$" data-amounts="10,25,50,100">США</a></li>
+					<li><a data-currency="CA$" data-amounts="10,25,50,100">Канада</a></li>
 				</ul>
 				<p class="field-label">Номинал карты</p>
 				<input class="amount-input" type="text" placeholder="Введите сумму">
 				<div class="amount-presets">
-					<button>10 $</button>
-					<button>25 $</button>
-					<button>50 $</button>
-					<button>100 $</button>
+					<button data-amount="10">10 $</button>
+					<button data-amount="25">25 $</button>
+					<button data-amount="50">50 $</button>
+					<button data-amount="100">100 $</button>
 				</div>
 				<p class="field-label">Email для получения кода</p>
 				<input class="login-input" type="text" placeholder="example@mail.ru">

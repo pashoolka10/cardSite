@@ -1,5 +1,6 @@
 /* ===================================
    Общий стиль сайта GiftPay
+   Тёмная тема с голубыми акцентами
    =================================== */
 
 * {
@@ -10,8 +11,8 @@
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	background: #f6f6f3;
-	color: #2b2b2b;
+	background: #10151c;
+	color: #e6eaf0;
 	line-height: 1.5;
 }
 
@@ -22,11 +23,11 @@ a:visited {
 }
 
 a:hover {
-	color: #3a5ad9;
+	color: #4c9aff;
 }
 
 a:active {
-	color: #2f49b3;
+	color: #78b4ff;
 }
 
 /* Для пунктов навигации обычная и посещённая ссылка выглядят одинаково */
@@ -43,16 +44,17 @@ a:active {
 
 .text-link:link,
 .text-link:visited {
-	color: #3a5ad9;
+	color: #4c9aff;
 	text-decoration: underline;
 }
 
 .text-link:hover {
-	color: #2f49b3;
+	color: #78b4ff;
 }
 
 .note-text {
 	margin-top: 20px;
+	color: #aab4c0;
 }
 
 ul {
@@ -61,6 +63,7 @@ ul {
 
 img {
 	max-width: 100%;
+	display: block;
 }
 
 .container {
@@ -72,9 +75,8 @@ img {
 /* ===== Шапка сайта ===== */
 
 .site-header {
-	background: #ffffff;
-	border-bottom: 1px solid #e4e3de;
-	position: relative;
+	background: #141a23;
+	border-bottom: 1px solid #232c38;
 }
 
 .header-inner {
@@ -86,25 +88,31 @@ img {
 	justify-content: space-between;
 }
 
+/* Обёртка кнопки-меню — от неё отталкивается выпадающий список,
+   поэтому он всегда открывается именно под кнопкой */
+.menu-wrap {
+	position: relative;
+}
+
 .menu-btn {
 	width: 40px;
 	height: 40px;
-	border: 1px solid #e4e3de;
-	background: #f6f6f3;
+	border: 1px solid #2a3442;
+	background: #1b2330;
 	border-radius: 8px;
 	font-size: 18px;
 	cursor: pointer;
-	color: #2b2b2b;
+	color: #e6eaf0;
 }
 
 .menu-btn:hover {
-	background: #ececea;
+	background: #232d3c;
 }
 
 .logo {
 	font-size: 22px;
 	font-weight: bold;
-	color: #3a5ad9;
+	color: #4c9aff;
 	letter-spacing: 0.5px;
 }
 
@@ -115,27 +123,27 @@ img {
 
 .top-nav a {
 	font-size: 15px;
-	color: #4a4a48;
+	color: #aab4c0;
 	padding: 6px 2px;
 	border-bottom: 2px solid transparent;
 }
 
 .top-nav a:hover {
-	color: #3a5ad9;
-	border-bottom: 2px solid #3a5ad9;
+	color: #4c9aff;
+	border-bottom: 2px solid #4c9aff;
 }
 
-/* Выпадающее меню слева */
+/* Выпадающее меню слева, привязано к .menu-wrap */
 
 .dropdown-menu {
 	display: none;
 	position: absolute;
-	top: 62px;
-	left: 20px;
-	background: #ffffff;
-	border: 1px solid #e4e3de;
+	top: 50px;
+	left: 0;
+	background: #1b2330;
+	border: 1px solid #2a3442;
 	border-radius: 10px;
-	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
 	overflow: hidden;
 	z-index: 10;
 }
@@ -148,13 +156,13 @@ img {
 	display: block;
 	padding: 12px 22px;
 	font-size: 15px;
-	color: #2b2b2b;
+	color: #e6eaf0;
 	white-space: nowrap;
 }
 
 .dropdown-menu li a:hover {
-	background: #f2f3ff;
-	color: #3a5ad9;
+	background: #232d3c;
+	color: #4c9aff;
 }
 
 /* ===== Популярное ===== */
@@ -176,15 +184,15 @@ img {
 
 .popular-card {
 	width: 130px;
-	background: #ffffff;
-	border: 1px solid #e4e3de;
+	background: #161d27;
+	border: 1px solid #232c38;
 	border-radius: 12px;
 	padding: 16px 10px;
 	text-align: center;
 }
 
 .popular-card:hover {
-	border-color: #3a5ad9;
+	border-color: #4c9aff;
 }
 
 .brand-icon {
@@ -200,15 +208,26 @@ img {
 	font-size: 15px;
 }
 
-.icon-ps { background: #0a3d8f; }
-.icon-steam { background: #1b2838; }
 .icon-openai { background: #10a37f; }
 .icon-claude { background: #da7756; }
-.icon-apple { background: #2b2b2b; }
+
+.brand-photo {
+	width: 48px;
+	height: 48px;
+	margin: 0 auto 10px auto;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.brand-photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 
 .popular-card span {
 	font-size: 14px;
-	color: #3a3a38;
+	color: #cfd6de;
 }
 
 /* ===== Блок пополнения / витрина услуг ===== */
@@ -225,7 +244,7 @@ img {
 .service-tabs {
 	display: flex;
 	gap: 24px;
-	border-bottom: 1px solid #e4e3de;
+	border-bottom: 1px solid #232c38;
 	margin-bottom: 22px;
 }
 
@@ -233,26 +252,73 @@ img {
 	display: inline-block;
 	padding: 10px 2px;
 	font-size: 15px;
-	color: #7a7a76;
+	color: #8b96a3;
 	border-bottom: 2px solid transparent;
 	cursor: pointer;
 }
 
 .service-tabs li a.active {
-	color: #2b2b2b;
-	border-bottom: 2px solid #3a5ad9;
+	color: #e6eaf0;
+	border-bottom: 2px solid #4c9aff;
 }
 
 .service-panel {
 	display: none;
-	background: #ffffff;
-	border: 1px solid #e4e3de;
+	background: #161d27;
+	border: 1px solid #232c38;
 	border-radius: 14px;
 	padding: 26px;
 }
 
 .service-panel.active {
 	display: block;
+}
+
+/* Карточка товара наверху вкладки, в духе витрины маркетплейса */
+
+.product-card {
+	display: flex;
+	gap: 22px;
+	margin-bottom: 26px;
+	padding-bottom: 26px;
+	border-bottom: 1px solid #232c38;
+}
+
+.product-cover {
+	width: 150px;
+	height: 150px;
+	flex-shrink: 0;
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid #232c38;
+}
+
+.product-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.product-info h3 {
+	font-size: 19px;
+	margin-bottom: 10px;
+}
+
+.product-info p {
+	font-size: 14px;
+	color: #aab4c0;
+	margin-bottom: 12px;
+	max-width: 560px;
+}
+
+.product-meta li {
+	font-size: 13px;
+	color: #8b96a3;
+	margin-bottom: 4px;
+}
+
+.product-meta b {
+	color: #cfd6de;
 }
 
 .country-tabs {
@@ -264,31 +330,33 @@ img {
 .country-tabs li a {
 	display: inline-block;
 	padding: 9px 18px;
-	border: 1px solid #d9d9d3;
+	border: 1px solid #2a3442;
 	border-radius: 8px;
 	font-size: 14px;
-	color: #4a4a48;
+	color: #aab4c0;
 }
 
 .country-tabs li a.active {
-	border-color: #3a5ad9;
-	color: #3a5ad9;
-	background: #f2f3ff;
+	border-color: #4c9aff;
+	color: #4c9aff;
+	background: rgba(76, 154, 255, 0.12);
 }
 
 .field-label {
 	font-size: 14px;
-	color: #6b6b68;
+	color: #8b96a3;
 	margin-bottom: 8px;
 }
 
 .amount-input {
 	width: 100%;
 	padding: 12px 14px;
-	border: 1px solid #d9d9d3;
+	border: 1px solid #2a3442;
 	border-radius: 8px;
 	font-size: 15px;
 	margin-bottom: 14px;
+	background: #10151c;
+	color: #e6eaf0;
 }
 
 .amount-presets {
@@ -300,33 +368,37 @@ img {
 
 .amount-presets button {
 	padding: 9px 16px;
-	border: 1px solid #d9d9d3;
+	border: 1px solid #2a3442;
 	border-radius: 8px;
-	background: #f6f6f3;
+	background: #10151c;
+	color: #e6eaf0;
 	font-size: 14px;
 	cursor: pointer;
 }
 
 .amount-presets button:hover,
 .amount-presets button.picked {
-	border-color: #3a5ad9;
-	color: #3a5ad9;
-	background: #f2f3ff;
+	border-color: #4c9aff;
+	color: #4c9aff;
+	background: rgba(76, 154, 255, 0.12);
 }
 
 .login-input {
 	width: 100%;
 	padding: 12px 14px;
-	border: 1px solid #d9d9d3;
+	border: 1px solid #2a3442;
 	border-radius: 8px;
 	font-size: 15px;
 	margin-bottom: 18px;
+	background: #10151c;
+	color: #e6eaf0;
 }
 
 .buy-btn {
 	padding: 13px 30px;
-	background: #3a5ad9;
-	color: #ffffff;
+	background: #4c9aff;
+	color: #0b1118;
+	font-weight: bold;
 	border: none;
 	border-radius: 8px;
 	font-size: 15px;
@@ -334,7 +406,7 @@ img {
 }
 
 .buy-btn:hover {
-	background: #2f49b3;
+	background: #78b4ff;
 }
 
 /* ===== Обычный текстовый блок (страницы О нас / Контакты) ===== */
@@ -355,18 +427,18 @@ img {
 
 .page-section p {
 	margin-bottom: 14px;
-	color: #3a3a38;
+	color: #aab4c0;
 	max-width: 720px;
 }
 
 .info-list li {
 	margin-bottom: 8px;
-	color: #3a3a38;
+	color: #aab4c0;
 }
 
 .map-wrap {
 	margin-top: 20px;
-	border: 1px solid #e4e3de;
+	border: 1px solid #232c38;
 	border-radius: 12px;
 	overflow: hidden;
 }
@@ -379,21 +451,22 @@ img {
 }
 
 .empty-block {
-	background: #ffffff;
-	border: 1px solid #e4e3de;
+	background: #161d27;
+	border: 1px solid #232c38;
 	border-radius: 12px;
 	padding: 50px 20px;
 	text-align: center;
-	color: #7a7a76;
+	color: #8b96a3;
 }
 
 /* ===== Подвал ===== */
 
 .site-footer {
-	background: #111111;
-	color: #d8d8d5;
+	background: #0b1118;
+	color: #aab4c0;
 	padding: 40px 0 18px 0;
 	margin-top: 30px;
+	border-top: 1px solid #232c38;
 }
 
 .footer-cols {
@@ -413,20 +486,20 @@ img {
 
 .footer-col p {
 	font-size: 14px;
-	color: #a9a9a6;
+	color: #8b96a3;
 	max-width: 260px;
 }
 
 .footer-col li {
 	font-size: 14px;
-	color: #a9a9a6;
+	color: #8b96a3;
 	margin-bottom: 10px;
 }
 
 .footer-bottom {
-	border-top: 1px solid #2a2a2a;
+	border-top: 1px solid #202834;
 	padding-top: 16px;
 	text-align: center;
 	font-size: 13px;
-	color: #7a7a78;
+	color: #5c6673;
 }

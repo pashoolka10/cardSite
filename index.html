@@ -11,7 +11,17 @@
 
 	<header class="site-header">
 		<div class="header-inner">
-			<button class="menu-btn" id="menuBtn" title="Меню">&#9776;</button>
+			<div class="menu-wrap">
+				<button class="menu-btn" id="menuBtn" title="Меню">&#9776;</button>
+				<div class="dropdown-menu" id="dropdownMenu">
+					<ul>
+						<li><a href="services.html">Услуги</a></li>
+						<li><a href="about.html">О нас</a></li>
+						<li><a href="contacts.html">Контакты</a></li>
+						<li><a href="profile.html">Профиль</a></li>
+					</ul>
+				</div>
+			</div>
 			<a href="index.html" class="logo">GiftPay</a>
 			<nav class="top-nav">
 				<ul>
@@ -22,14 +32,6 @@
 				</ul>
 			</nav>
 		</div>
-		<div class="dropdown-menu" id="dropdownMenu">
-			<ul>
-				<li><a href="services.html">Услуги</a></li>
-				<li><a href="about.html">О нас</a></li>
-				<li><a href="contacts.html">Контакты</a></li>
-				<li><a href="profile.html">Профиль</a></li>
-			</ul>
-		</div>
 	</header>
 
 	<main class="container">
@@ -37,14 +39,18 @@
 		<section class="popular">
 			<h2>Популярное</h2>
 			<div class="popular-list">
-				<div class="popular-card">
-					<div class="brand-icon icon-ps">PS</div>
+				<a class="popular-card" href="services.html#ps">
+					<div class="brand-photo">
+						<img src="images/popular-ps.png" alt="Обложка PlayStation Store">
+					</div>
 					<span>PlayStation</span>
-				</div>
-				<div class="popular-card">
-					<div class="brand-icon icon-steam">St</div>
+				</a>
+				<a class="popular-card" href="services.html#steam">
+					<div class="brand-photo">
+						<img src="images/popular-steam.png" alt="Обложка Steam">
+					</div>
 					<span>Steam</span>
-				</div>
+				</a>
 				<div class="popular-card">
 					<div class="brand-icon icon-openai">AI</div>
 					<span>OpenAI</span>
@@ -53,10 +59,12 @@
 					<div class="brand-icon icon-claude">Cl</div>
 					<span>Claude</span>
 				</div>
-				<div class="popular-card">
-					<div class="brand-icon icon-apple">A</div>
+				<a class="popular-card" href="services.html#apple">
+					<div class="brand-photo">
+						<img src="images/popular-apple.png" alt="Обложка Apple Gift Card">
+					</div>
 					<span>Apple</span>
-				</div>
+				</a>
 			</div>
 		</section>
 

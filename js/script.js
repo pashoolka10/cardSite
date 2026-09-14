@@ -18,23 +18,40 @@ if (menuBtn) {
 
 // Переключение вкладок услуг (Steam / PlayStation / Apple)
 var serviceTabs = document.querySelectorAll(".service-tabs a");
+
+function openServiceTab(tab) {
+	var targetId = tab.getAttribute("data-target");
+
+	serviceTabs.forEach(function (t) {
+		t.classList.remove("active");
+	});
+	tab.classList.add("active");
+
+	document.querySelectorAll(".service-panel").forEach(function (panel) {
+		panel.classList.remove("active");
+	});
+	document.getElementById(targetId).classList.add("active");
+}
+
 serviceTabs.forEach(function (tab) {
 	tab.addEventListener("click", function () {
-		var targetId = tab.getAttribute("data-target");
-
-		serviceTabs.forEach(function (t) {
-			t.classList.remove("active");
-		});
-		tab.classList.add("active");
-
-		document.querySelectorAll(".service-panel").forEach(function (panel) {
-			panel.classList.remove("active");
-		});
-		document.getElementById(targetId).classList.add("active");
+		openServiceTab(tab);
 	});
 });
 
+// Открытие нужной вкладки по ссылке с якорем, например services.html#ps
+if (serviceTabs.length) {
+	var hash = window.location.hash.replace("#", "");
+	if (hash) {
+		var matchingTab = document.querySelector('.service-tabs a[data-hash="' + hash + '"]');
+		if (matchingTab) {
+			openServiceTab(matchingTab);
+		}
+	}
+}
+
 // Переключение стран внутри карточки (Турция / Индия, США / Канада)
+// вместе со сменой валюты в кнопках выбора суммы
 var countryTabs = document.querySelectorAll(".country-tabs a");
 countryTabs.forEach(function (tab) {
 	tab.addEventListener("click", function () {
@@ -43,23 +60,43 @@ countryTabs.forEach(function (tab) {
 			t.classList.remove("active");
 		});
 		tab.classList.add("active");
+
+		var currency = tab.getAttribute("data-currency");
+		var amountsAttr = tab.getAttribute("data-amounts");
+		if (currency && amountsAttr) {
+			var amounts = amountsAttr.split(",");
+			var panel = tab.closest(".service-panel");
+			var presetButtons = panel.querySelectorAll(".amount-presets button");
+
+			presetButtons.forEach(function (btn, index) {
+				if (amounts[index]) {
+					btn.setAttribute("data-amount", amounts[index]);
+					btn.textContent = amounts[index] + " " + currency;
+					btn.classList.remove("picked");
+				}
+			});
+
+			var input = panel.querySelector(".amount-input");
+			if (input) {
+				input.value = "";
+			}
+		}
 	});
 });
 
 // Выбор суммы пополнения кнопками
 var presetGroups = document.querySelectorAll(".amount-presets");
 presetGroups.forEach(function (group) {
-	var buttons = group.querySelectorAll("button");
 	var input = group.parentElement.querySelector(".amount-input");
 
-	buttons.forEach(function (btn) {
+	group.querySelectorAll("button").forEach(function (btn) {
 		btn.addEventListener("click", function () {
-			buttons.forEach(function (b) {
+			group.querySelectorAll("button").forEach(function (b) {
 				b.classList.remove("picked");
 			});
 			btn.classList.add("picked");
 			if (input) {
-				input.value = btn.textContent.replace(/\D/g, "");
+				input.value = btn.getAttribute("data-amount") || btn.textContent.replace(/\D/g, "");
 			}
 		});
 	});

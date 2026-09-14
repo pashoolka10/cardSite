@@ -178,16 +178,16 @@ img {
 
 .popular-list {
 	display: flex;
-	gap: 16px;
+	gap: 18px;
 	flex-wrap: wrap;
 }
 
 .popular-card {
-	width: 130px;
+	width: 230px;
 	background: #161d27;
 	border: 1px solid #232c38;
-	border-radius: 12px;
-	padding: 16px 10px;
+	border-radius: 14px;
+	padding: 14px;
 	text-align: center;
 }
 
@@ -196,25 +196,25 @@ img {
 }
 
 .brand-icon {
-	width: 48px;
-	height: 48px;
-	margin: 0 auto 10px auto;
+	width: 100%;
+	height: 130px;
+	margin: 0 auto 12px auto;
 	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #ffffff;
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 32px;
 }
 
 .icon-openai { background: #10a37f; }
 .icon-claude { background: #da7756; }
 
 .brand-photo {
-	width: 48px;
-	height: 48px;
-	margin: 0 auto 10px auto;
+	width: 100%;
+	height: 130px;
+	margin: 0 auto 12px auto;
 	border-radius: 12px;
 	overflow: hidden;
 }
@@ -226,7 +226,7 @@ img {
 }
 
 .popular-card span {
-	font-size: 14px;
+	font-size: 15px;
 	color: #cfd6de;
 }
 

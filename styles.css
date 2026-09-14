@@ -183,40 +183,46 @@ img {
 }
 
 .popular-card {
-	width: 230px;
-	background: #161d27;
-	border: 1px solid #232c38;
-	border-radius: 14px;
-	padding: 14px;
+	width: 150px;
+	background: none;
+	border: none;
+	padding: 0;
 	text-align: center;
 }
 
-.popular-card:hover {
-	border-color: #4c9aff;
-}
-
 .brand-icon {
-	width: 100%;
-	height: 130px;
-	margin: 0 auto 12px auto;
-	border-radius: 12px;
+	width: 150px;
+	height: 150px;
+	margin: 0 auto 10px auto;
+	border-radius: 16px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 32px;
+	transition: outline-color 0.15s;
+	outline: 2px solid transparent;
+	outline-offset: 2px;
 }
 
 .icon-openai { background: #10a37f; }
 .icon-claude { background: #da7756; }
 
 .brand-photo {
-	width: 100%;
-	height: 130px;
-	margin: 0 auto 12px auto;
-	border-radius: 12px;
+	width: 150px;
+	height: 150px;
+	margin: 0 auto 10px auto;
+	border-radius: 16px;
 	overflow: hidden;
+	transition: outline-color 0.15s;
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+
+.popular-card:hover .brand-photo,
+.popular-card:hover .brand-icon {
+	outline-color: #4c9aff;
 }
 
 .brand-photo img {

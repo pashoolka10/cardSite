@@ -1,0 +1,432 @@
+/* ===================================
+   Общий стиль сайта GiftPay
+   =================================== */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: #f6f6f3;
+	color: #2b2b2b;
+	line-height: 1.5;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	color: #3a5ad9;
+}
+
+a:active {
+	color: #2f49b3;
+}
+
+/* Для пунктов навигации обычная и посещённая ссылка выглядят одинаково */
+.top-nav a:link,
+.top-nav a:visited,
+.dropdown-menu a:link,
+.dropdown-menu a:visited,
+.service-tabs a:link,
+.service-tabs a:visited,
+.country-tabs a:link,
+.country-tabs a:visited {
+	color: inherit;
+}
+
+.text-link:link,
+.text-link:visited {
+	color: #3a5ad9;
+	text-decoration: underline;
+}
+
+.text-link:hover {
+	color: #2f49b3;
+}
+
+.note-text {
+	margin-top: 20px;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* ===== Шапка сайта ===== */
+
+.site-header {
+	background: #ffffff;
+	border-bottom: 1px solid #e4e3de;
+	position: relative;
+}
+
+.header-inner {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 14px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.menu-btn {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #e4e3de;
+	background: #f6f6f3;
+	border-radius: 8px;
+	font-size: 18px;
+	cursor: pointer;
+	color: #2b2b2b;
+}
+
+.menu-btn:hover {
+	background: #ececea;
+}
+
+.logo {
+	font-size: 22px;
+	font-weight: bold;
+	color: #3a5ad9;
+	letter-spacing: 0.5px;
+}
+
+.top-nav ul {
+	display: flex;
+	gap: 26px;
+}
+
+.top-nav a {
+	font-size: 15px;
+	color: #4a4a48;
+	padding: 6px 2px;
+	border-bottom: 2px solid transparent;
+}
+
+.top-nav a:hover {
+	color: #3a5ad9;
+	border-bottom: 2px solid #3a5ad9;
+}
+
+/* Выпадающее меню слева */
+
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	top: 62px;
+	left: 20px;
+	background: #ffffff;
+	border: 1px solid #e4e3de;
+	border-radius: 10px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+	z-index: 10;
+}
+
+.dropdown-menu.open {
+	display: block;
+}
+
+.dropdown-menu li a {
+	display: block;
+	padding: 12px 22px;
+	font-size: 15px;
+	color: #2b2b2b;
+	white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+	background: #f2f3ff;
+	color: #3a5ad9;
+}
+
+/* ===== Популярное ===== */
+
+.popular {
+	padding: 34px 0 10px 0;
+}
+
+.popular h2 {
+	font-size: 22px;
+	margin-bottom: 16px;
+}
+
+.popular-list {
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+
+.popular-card {
+	width: 130px;
+	background: #ffffff;
+	border: 1px solid #e4e3de;
+	border-radius: 12px;
+	padding: 16px 10px;
+	text-align: center;
+}
+
+.popular-card:hover {
+	border-color: #3a5ad9;
+}
+
+.brand-icon {
+	width: 48px;
+	height: 48px;
+	margin: 0 auto 10px auto;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.icon-ps { background: #0a3d8f; }
+.icon-steam { background: #1b2838; }
+.icon-openai { background: #10a37f; }
+.icon-claude { background: #da7756; }
+.icon-apple { background: #2b2b2b; }
+
+.popular-card span {
+	font-size: 14px;
+	color: #3a3a38;
+}
+
+/* ===== Блок пополнения / витрина услуг ===== */
+
+.shop {
+	padding: 30px 0 50px 0;
+}
+
+.shop h2 {
+	font-size: 22px;
+	margin-bottom: 16px;
+}
+
+.service-tabs {
+	display: flex;
+	gap: 24px;
+	border-bottom: 1px solid #e4e3de;
+	margin-bottom: 22px;
+}
+
+.service-tabs li a {
+	display: inline-block;
+	padding: 10px 2px;
+	font-size: 15px;
+	color: #7a7a76;
+	border-bottom: 2px solid transparent;
+	cursor: pointer;
+}
+
+.service-tabs li a.active {
+	color: #2b2b2b;
+	border-bottom: 2px solid #3a5ad9;
+}
+
+.service-panel {
+	display: none;
+	background: #ffffff;
+	border: 1px solid #e4e3de;
+	border-radius: 14px;
+	padding: 26px;
+}
+
+.service-panel.active {
+	display: block;
+}
+
+.country-tabs {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.country-tabs li a {
+	display: inline-block;
+	padding: 9px 18px;
+	border: 1px solid #d9d9d3;
+	border-radius: 8px;
+	font-size: 14px;
+	color: #4a4a48;
+}
+
+.country-tabs li a.active {
+	border-color: #3a5ad9;
+	color: #3a5ad9;
+	background: #f2f3ff;
+}
+
+.field-label {
+	font-size: 14px;
+	color: #6b6b68;
+	margin-bottom: 8px;
+}
+
+.amount-input {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid #d9d9d3;
+	border-radius: 8px;
+	font-size: 15px;
+	margin-bottom: 14px;
+}
+
+.amount-presets {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
+}
+
+.amount-presets button {
+	padding: 9px 16px;
+	border: 1px solid #d9d9d3;
+	border-radius: 8px;
+	background: #f6f6f3;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.amount-presets button:hover,
+.amount-presets button.picked {
+	border-color: #3a5ad9;
+	color: #3a5ad9;
+	background: #f2f3ff;
+}
+
+.login-input {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid #d9d9d3;
+	border-radius: 8px;
+	font-size: 15px;
+	margin-bottom: 18px;
+}
+
+.buy-btn {
+	padding: 13px 30px;
+	background: #3a5ad9;
+	color: #ffffff;
+	border: none;
+	border-radius: 8px;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.buy-btn:hover {
+	background: #2f49b3;
+}
+
+/* ===== Обычный текстовый блок (страницы О нас / Контакты) ===== */
+
+.page-section {
+	padding: 40px 0;
+}
+
+.page-section h1 {
+	font-size: 26px;
+	margin-bottom: 18px;
+}
+
+.page-section h2 {
+	font-size: 20px;
+	margin: 24px 0 12px 0;
+}
+
+.page-section p {
+	margin-bottom: 14px;
+	color: #3a3a38;
+	max-width: 720px;
+}
+
+.info-list li {
+	margin-bottom: 8px;
+	color: #3a3a38;
+}
+
+.map-wrap {
+	margin-top: 20px;
+	border: 1px solid #e4e3de;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.map-wrap iframe {
+	width: 100%;
+	height: 380px;
+	border: 0;
+	display: block;
+}
+
+.empty-block {
+	background: #ffffff;
+	border: 1px solid #e4e3de;
+	border-radius: 12px;
+	padding: 50px 20px;
+	text-align: center;
+	color: #7a7a76;
+}
+
+/* ===== Подвал ===== */
+
+.site-footer {
+	background: #111111;
+	color: #d8d8d5;
+	padding: 40px 0 18px 0;
+	margin-top: 30px;
+}
+
+.footer-cols {
+	display: flex;
+	gap: 60px;
+	flex-wrap: wrap;
+	margin-bottom: 28px;
+}
+
+.footer-col h3 {
+	font-size: 15px;
+	letter-spacing: 1px;
+	margin-bottom: 14px;
+	color: #ffffff;
+	text-transform: uppercase;
+}
+
+.footer-col p {
+	font-size: 14px;
+	color: #a9a9a6;
+	max-width: 260px;
+}
+
+.footer-col li {
+	font-size: 14px;
+	color: #a9a9a6;
+	margin-bottom: 10px;
+}
+
+.footer-bottom {
+	border-top: 1px solid #2a2a2a;
+	padding-top: 16px;
+	text-align: center;
+	font-size: 13px;
+	color: #7a7a78;
+}
